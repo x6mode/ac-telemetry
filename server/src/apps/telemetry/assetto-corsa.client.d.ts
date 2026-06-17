@@ -9,9 +9,5 @@ declare module 'ac-remote-telemetry-client' {
     subscribeSpot(): void;
   }
 
-  export enum EEvents {
-    RT_LAP,
-    RT_CAR_INFO,
-    HANDSHAKER_RESPONSE,
-  }
+  export type TEvents = 'RT_LAP' | 'RT_CAR_INFO' | 'HANDSHAKER_RESPONSE';
 }
