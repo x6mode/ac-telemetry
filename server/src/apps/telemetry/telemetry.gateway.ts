@@ -23,6 +23,8 @@ export class TelemetryGateway implements OnModuleInit, OnModuleDestroy {
   onModuleInit() {
     try {
       client.on('HANDSHAKER_RESPONSE', (data) => console.log(data));
+      client.on('RT_CAR_INFO', (data) => console.log(data));
+      client.on('RT_LAP', (data) => console.log(data));
 
       client.start();
       client.handshake();
