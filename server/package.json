@@ -22,6 +22,7 @@
     "@nestjs/platform-socket.io": "^11.1.27",
     "@nestjs/websockets": "^11.1.27",
     "ac-remote-telemetry-client": "^0.1.1",
+    "binary-parser": "^2.3.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1"
   },

@@ -1,15 +1,11 @@
-import {
-  ConfigurableModuleBuilder,
-  Logger,
-  OnModuleDestroy,
-  OnModuleInit,
-} from '@nestjs/common';
+import { Logger, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 
 import { WebSocketGateway } from '@nestjs/websockets';
 
 import { client } from './assetto-corsa.client';
 
 import { TGeneralInfo } from 'src/shared/types/telemetry';
+import { RTCarInfoParser } from './test';
 
 @WebSocketGateway({
   cors: true,
@@ -22,15 +18,8 @@ export class TelemetryGateway implements OnModuleInit, OnModuleDestroy {
 
   onModuleInit() {
     try {
-      client.on('HANDSHAKER_RESPONSE', (data) => console.log(data));
-      client.on('RT_CAR_INFO', (data) => console.log(data));
-      client.on('RT_LAP', (data) => console.log(data));
-
-      client.start();
-      client.handshake();
-
-      client.subscribeSpot();
-      client.subscribeUpdate();
+      const rt = new RTCarInfoParser();
+      setInterval(() => rt.parse(), 100);
       console.log('aaaa1');
     } catch (e) {
       console.log(e);
