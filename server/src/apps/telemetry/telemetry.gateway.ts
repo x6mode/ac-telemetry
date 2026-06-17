@@ -30,7 +30,7 @@ export class TelemetryGateway implements OnModuleInit, OnModuleDestroy {
       client.handshake();
       console.log('aaaa1');
     } catch (e) {
-      console.log('aaaa2');
+      console.log(e);
     }
 
     Logger.log('Application websocket server started', this.logName);
