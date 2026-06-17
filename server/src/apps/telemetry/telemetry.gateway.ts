@@ -24,10 +24,11 @@ export class TelemetryGateway implements OnModuleInit, OnModuleDestroy {
 
   onModuleInit() {
     try {
+      client.on(EEvents.HANDSHAKER_RESPONSE, (data) => console.log(data));
+
       client.start();
       client.handshake();
       console.log('aaaa1');
-      client.on(EEvents.HANDSHAKER_RESPONSE, (data) => console.log(data));
     } catch (e) {
       console.log('aaaa2');
     }
