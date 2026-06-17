@@ -1,0 +1,1 @@
+If dont build delete webpack: true from nest cli
