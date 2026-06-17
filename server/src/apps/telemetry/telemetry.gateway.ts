@@ -28,6 +28,9 @@ export class TelemetryGateway implements OnModuleInit, OnModuleDestroy {
 
       client.start();
       client.handshake();
+
+      client.subscribeSpot();
+      client.subscribeUpdate();
       console.log('aaaa1');
     } catch (e) {
       console.log(e);
